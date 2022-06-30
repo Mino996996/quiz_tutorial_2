@@ -29,6 +29,7 @@ namespace WindowsFormsApp_tutorial_2
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.timeLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.plusLeftLabel = new System.Windows.Forms.Label();
@@ -43,15 +44,16 @@ namespace WindowsFormsApp_tutorial_2
             this.minusLeftLabel = new System.Windows.Forms.Label();
             this.product = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.timesRilghLabel = new System.Windows.Forms.Label();
+            this.timesRightLabel = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.timesLeftLabel = new System.Windows.Forms.Label();
             this.quotient = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
-            this.devideRightLabel = new System.Windows.Forms.Label();
+            this.dividedRightLabel = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.devidLeftLabel = new System.Windows.Forms.Label();
+            this.dividedLeftLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.sum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.difference)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.product)).BeginInit();
@@ -191,15 +193,15 @@ namespace WindowsFormsApp_tutorial_2
             this.label8.Text = "=";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timesRilghLabel
+            // timesRightLabel
             // 
-            this.timesRilghLabel.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.timesRilghLabel.Location = new System.Drawing.Point(182, 191);
-            this.timesRilghLabel.Name = "timesRilghLabel";
-            this.timesRilghLabel.Size = new System.Drawing.Size(60, 50);
-            this.timesRilghLabel.TabIndex = 14;
-            this.timesRilghLabel.Text = "?";
-            this.timesRilghLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.timesRightLabel.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.timesRightLabel.Location = new System.Drawing.Point(182, 191);
+            this.timesRightLabel.Name = "timesRightLabel";
+            this.timesRightLabel.Size = new System.Drawing.Size(60, 50);
+            this.timesRightLabel.TabIndex = 14;
+            this.timesRightLabel.Text = "?";
+            this.timesRightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
             // 
@@ -239,15 +241,15 @@ namespace WindowsFormsApp_tutorial_2
             this.label12.Text = "=";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // devideRightLabel
+            // dividedRightLabel
             // 
-            this.devideRightLabel.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.devideRightLabel.Location = new System.Drawing.Point(182, 264);
-            this.devideRightLabel.Name = "devideRightLabel";
-            this.devideRightLabel.Size = new System.Drawing.Size(60, 50);
-            this.devideRightLabel.TabIndex = 19;
-            this.devideRightLabel.Text = "?";
-            this.devideRightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dividedRightLabel.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dividedRightLabel.Location = new System.Drawing.Point(182, 264);
+            this.dividedRightLabel.Name = "dividedRightLabel";
+            this.dividedRightLabel.Size = new System.Drawing.Size(60, 50);
+            this.dividedRightLabel.TabIndex = 19;
+            this.dividedRightLabel.Text = "?";
+            this.dividedRightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label14
             // 
@@ -259,15 +261,15 @@ namespace WindowsFormsApp_tutorial_2
             this.label14.Text = "/";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // devidLeftLabel
+            // dividedLeftLabel
             // 
-            this.devidLeftLabel.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.devidLeftLabel.Location = new System.Drawing.Point(50, 264);
-            this.devidLeftLabel.Name = "devidLeftLabel";
-            this.devidLeftLabel.Size = new System.Drawing.Size(60, 50);
-            this.devidLeftLabel.TabIndex = 17;
-            this.devidLeftLabel.Text = "?";
-            this.devidLeftLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dividedLeftLabel.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dividedLeftLabel.Location = new System.Drawing.Point(50, 264);
+            this.dividedLeftLabel.Name = "dividedLeftLabel";
+            this.dividedLeftLabel.Size = new System.Drawing.Size(60, 50);
+            this.dividedLeftLabel.TabIndex = 17;
+            this.dividedLeftLabel.Text = "?";
+            this.dividedLeftLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button1
             // 
@@ -279,6 +281,12 @@ namespace WindowsFormsApp_tutorial_2
             this.button1.TabIndex = 22;
             this.button1.Text = "start quiz";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -288,12 +296,12 @@ namespace WindowsFormsApp_tutorial_2
             this.Controls.Add(this.button1);
             this.Controls.Add(this.quotient);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.devideRightLabel);
+            this.Controls.Add(this.dividedRightLabel);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.devidLeftLabel);
+            this.Controls.Add(this.dividedLeftLabel);
             this.Controls.Add(this.product);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.timesRilghLabel);
+            this.Controls.Add(this.timesRightLabel);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.timesLeftLabel);
             this.Controls.Add(this.difference);
@@ -337,15 +345,16 @@ namespace WindowsFormsApp_tutorial_2
         private System.Windows.Forms.Label minusLeftLabel;
         private System.Windows.Forms.NumericUpDown product;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label timesRilghLabel;
+        private System.Windows.Forms.Label timesRightLabel;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label timesLeftLabel;
         private System.Windows.Forms.NumericUpDown quotient;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label devideRightLabel;
+        private System.Windows.Forms.Label dividedRightLabel;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label devidLeftLabel;
+        private System.Windows.Forms.Label dividedLeftLabel;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
