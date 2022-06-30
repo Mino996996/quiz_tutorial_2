@@ -126,6 +126,7 @@ namespace WindowsFormsApp_tutorial_2
             this.sum.Name = "sum";
             this.sum.Size = new System.Drawing.Size(100, 31);
             this.sum.TabIndex = 1;
+            this.sum.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // difference
             // 
@@ -134,6 +135,7 @@ namespace WindowsFormsApp_tutorial_2
             this.difference.Name = "difference";
             this.difference.Size = new System.Drawing.Size(100, 31);
             this.difference.TabIndex = 2;
+            this.difference.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label3
             // 
@@ -182,6 +184,7 @@ namespace WindowsFormsApp_tutorial_2
             this.product.Name = "product";
             this.product.Size = new System.Drawing.Size(100, 31);
             this.product.TabIndex = 3;
+            this.product.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label8
             // 
@@ -230,6 +233,7 @@ namespace WindowsFormsApp_tutorial_2
             this.quotient.Name = "quotient";
             this.quotient.Size = new System.Drawing.Size(100, 31);
             this.quotient.TabIndex = 4;
+            this.quotient.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label12
             // 
